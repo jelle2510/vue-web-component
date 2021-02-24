@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build  --target wc --name my-web-component ./src/components/MyWebComponent.vue",
+    "build product banner": "vue-cli-service build --target wc --name product-banner ./src/components/ProductBanner.vue",
+    "build my web component": "vue-cli-service build  --target wc --name my-web-component ./src/components/MyWebComponent.vue",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

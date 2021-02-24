@@ -2,15 +2,14 @@
   <section>
     <h1>My Vue Web Component</h1>
     <div>{{ msg }}</div>
+    <slot></slot>
+    <div>{{ msg }}</div>
   </section>
 </template>
 
 <script>
-import webpackConfig from '@vue/cli-service/webpack.config';
-console.log(webpackConfig)
-
 export default {
-  props: ['msg'] 
+  props: ['msg']
 }
 </script>
 
