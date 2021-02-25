@@ -12,7 +12,7 @@
     </div>
     <div class="flexRow">
         <a v-for="shop of product_data.shops" :key="shop.id" :href="shop.shop_link">
-            <div>
+            <div class="flexCol">
                 <img :src="shop.logo_url" :alt="shop.name" class="shopimg"/>
                 <p>{{ shop.name }}</p>
                 <p>€ {{ shop.price }}</p>
@@ -76,9 +76,12 @@ export default {
 
 #ProductBanner>div>a>div>p {
     text-align: center;
+    max-width: 150px;
+    word-wrap: break-word;
 }
 
 .shopimg {
+    object-fit: cover;
     max-width: 150px;
     max-height: 100px;
 }
