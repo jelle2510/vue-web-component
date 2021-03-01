@@ -5,20 +5,21 @@
       <h2 style="text-align: center;" class="smallTitle mb25 row uppercase bold centerTxt">
           {{ product_data.name }}
       </h2>
-      <br>
-      <p style="text-align: center;" class="row mb15">
-          Verkrijgbaar bij
-      </p>
+      <div class="flexRow">
+        <div v-if="product_data.shops[0]" class="flexCol">
+          <img :src="product_data.shops[0].logo_url" :alt="product_data.shops[0].name" class="shopimg" />
+          <p>€ {{ product_data.shops[0].price }}</p>
+        </div>
+        <div class="flexCol">
+          <img :src="product_data.images[0].img_url" :alt="product_data.name" class="productimg" />
+        </div>
+        <div v-if="product_data.shops[1]" class="flexCol">
+          <img :src="product_data.shops[1].logo_url" :alt="product_data.shops[1].name" class="shopimg" />
+          <p>€ {{ product_data.shops[1].price }}</p>
+        </div>
+      </div>
     </div>
-    <div class="flexRow">
-        <a v-for="shop of product_data.shops" :key="shop.id" :href="shop.shop_link">
-            <div class="flexCol">
-                <img :src="shop.logo_url" :alt="shop.name" class="shopimg"/>
-                <p>{{ shop.name }}</p>
-                <p>€ {{ shop.price }}</p>
-            </div>
-        </a>
-    </div>
+    
     <hr class="mb10">
   </div>
 </template>
@@ -49,9 +50,16 @@ export default {
 </script>
 
 <style>
-#ProductBanner {
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+div {
+    font-family: 'Lato', sans-serif;
     margin-left: auto;
     margin-right: auto;
+
+    margin: 10px;
+    text-align: center;
+    word-wrap: break-word;
 }
 
 .flexCol {
@@ -70,14 +78,10 @@ export default {
     justify-content: center;
 }
 
-#ProductBanner>div>a {
-    margin: 10px;
-}
-
-#ProductBanner>div>a>div>p {
-    text-align: center;
-    max-width: 150px;
-    word-wrap: break-word;
+.productimg {
+  object-fit: cover;
+  max-width: 400px;
+  max-height: 250px;
 }
 
 .shopimg {
